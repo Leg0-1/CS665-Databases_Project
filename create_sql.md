@@ -36,9 +36,9 @@ CREATE TABLE Cases(
 CREATE TABLE Billings(
     BillID INT(255) AUTO_INCREMENT NOT NULL,
     ClientID CHAR(6) NOT NULL,
-    CaseID INT NOT NULL,
     Earnings FLOAT(23) NOT NULL,
     Billed_on DATE NOT NULL,
+    Reason VARCHAR(255) NOT NULL,
     PRIMARY KEY(BillID),
     FOREIGN KEY(ClientID) REFERENCES Clients(ClientID),
     FOREIGN KEY(CaseID) REFERENCES Cases(CaseID)
