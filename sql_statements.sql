@@ -1,5 +1,5 @@
 CREATE TABLE Lawyers(
-    LawyerID CHAR(4) NOT NULL,
+    LawyerID CHAR(4) NOT NULL, -- L001, L002, L003, ...
     LastName VARCHAR(255) NOT NULL,
     FirstName VARCHAR(255) NOT NULL,
     Member_Of_Bar_Since YEAR NOT NULL,
@@ -7,7 +7,7 @@ CREATE TABLE Lawyers(
 );
 
 CREATE TABLE Clients(
-    ClientID CHAR(6) NOT NULL,
+    ClientID CHAR(6) NOT NULL, --CLI001, CLI002, CLI003, ...
     Company_Name VARCHAR(255) NOT NULL,
     Industry ENUM("Tech", "Healthcare", "Finance", "Energy and Utilities", "Transportation", "Education", "Automotive", "Defense", "Construction", "Other") NOT NULL,
     Client_Since DATE NOT NULL,
@@ -16,7 +16,7 @@ CREATE TABLE Clients(
 );
 
 CREATE TABLE Cases(
-    CaseID INT AUTO_INCREMENT NOT NULL,
+    CaseID INT(255) AUTO_INCREMENT NOT NULL,
     LawyerID CHAR(4) NOT NULL,
     ClientID CHAR(6) NOT NULL,
     Ongoing BOOL NOT NULL,
@@ -28,7 +28,7 @@ CREATE TABLE Cases(
 );
 
 CREATE TABLE Billings(
-    BillID INT AUTO_INCREMENT NOT NULL,
+    BillID INT(255) AUTO_INCREMENT NOT NULL,
     ClientID CHAR(6) NOT NULL,
     CaseID INT NOT NULL,
     Earnings FLOAT(23) NOT NULL,

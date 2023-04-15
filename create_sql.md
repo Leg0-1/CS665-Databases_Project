@@ -21,7 +21,7 @@ CREATE TABLE Clients(
 
 ## Table 3 (Cases)
 CREATE TABLE Cases(
-    CaseID INT AUTO_INCREMENT NOT NULL,
+    CaseID INT(255) AUTO_INCREMENT NOT NULL,
     LawyerID CHAR(4) NOT NULL,
     ClientID CHAR(6) NOT NULL,
     Ongoing BOOL NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE Cases(
 
 ## Table 4 (Billings)
 CREATE TABLE Billings(
-    BillID INT AUTO_INCREMENT NOT NULL,
+    BillID INT(255) AUTO_INCREMENT NOT NULL,
     ClientID CHAR(6) NOT NULL,
     CaseID INT NOT NULL,
     Earnings FLOAT(23) NOT NULL,
