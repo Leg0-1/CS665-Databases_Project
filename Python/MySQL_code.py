@@ -1,13 +1,18 @@
 import mysql.connector
-import pandas as pd
 
-mydb = mysql.connector.connect(
+LawyerDB = mysql.connector.connect(
   host="localhost",
-  user="leg0",
-  password="hackerman99",
-  database = 'mydb'
+  user="root",
+  password="project.Password01", # Just bc it's a password I'll never use doesn't mean I shouldn't make it strong
+  database = 'LawyerDB'
 )
 
-cursor = mydb.cursor()
+cursor = LawyerDB.cursor()
 
 
+cursor.execute("SELECT * FROM Lawyers;")
+
+result = cursor.fetchall()
+
+for x in result:
+    print(x)

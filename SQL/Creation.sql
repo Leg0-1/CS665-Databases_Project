@@ -33,7 +33,7 @@ CREATE TABLE Cases(
 CREATE TABLE Billings(
     BillID INT(255) AUTO_INCREMENT NOT NULL,
     ClientID CHAR(6) NOT NULL,
-    Earnings FLOAT(23) NOT NULL,
+    Earnings DECIMAL(15,2) NOT NULL,
     Billed_on DATE NOT NULL,
     Reason VARCHAR(255) NOT NULL,
     PRIMARY KEY(BillID),
@@ -93,7 +93,7 @@ VALUES("L005", "CLI005", 1, NULL, NULL);
 
 
 -- Billings Table: 
--- There will be a bill for a signing on fee ($100,000.00) and a bill per case (variable on the case), so there will initially by 9 records in this table.
+-- There will be a bill for a signing on fee ($100,000.00) and a bill per case (variable on the case), so there will initially by 10 records in this table.
 -- Add a trigger later that says you cannot bill for a case that a client that does not exist
 -- Add another trigger saying whenever a client is signed on, make another record on the billings table about their sign on fee.
 INSERT INTO Billings(ClientID, Earnings, Billed_on, Reason) -- Bill ID = 1

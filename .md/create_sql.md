@@ -41,7 +41,7 @@ CREATE TABLE Cases(
 CREATE TABLE Billings(
     BillID INT(255) AUTO_INCREMENT NOT NULL,
     ClientID CHAR(6) NOT NULL,
-    Earnings FLOAT(23) NOT NULL,
+    Earnings DECIMAL(15,2) NOT NULL,
     Billed_on DATE NOT NULL,
     Reason VARCHAR(255) NOT NULL,
     PRIMARY KEY(BillID),
