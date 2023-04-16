@@ -8,10 +8,10 @@ CREATE TABLE Lawyers(
 );
 
 CREATE TABLE Clients(
-    ClientID CHAR(6) NOT NULL, --CLI001, CLI002, CLI003, ...
+    ClientID CHAR(6) NOT NULL,
     Company_Name VARCHAR(255) NOT NULL,
     Industry ENUM("Tech", "Healthcare", "Finance", "Energy and Utilities", "Transportation", "Education", "Automotive", "Defense", "Construction", "Other") NOT NULL,
-    Client_Since DATE NOT NULL,
+    Client_Since YEAR NOT NULL,
     UNIQUE(Company_Name),
     PRIMARY KEY(ClientID)
 );
@@ -21,8 +21,8 @@ CREATE TABLE Cases(
     LawyerID CHAR(4) NOT NULL,
     ClientID CHAR(6) NOT NULL,
     Ongoing BOOL NOT NULL,
-    Judgement_Date DATE, --can be NULL because case may be ongoing
-    Win BOOL, -- can be NULL because case may be ongoing
+    Judgement_Date DATE,
+    Win BOOL, 
     PRIMARY KEY(CaseID),
     FOREIGN KEY(LawyerID) REFERENCES Lawyers(LawyerID),
     FOREIGN KEY(ClientID) REFERENCES Clients(ClientID)
@@ -35,9 +35,10 @@ CREATE TABLE Billings(
     Billed_on DATE NOT NULL,
     Reason VARCHAR(255) NOT NULL,
     PRIMARY KEY(BillID),
-    FOREIGN KEY(ClientID) REFERENCES Clients(ClientID),
-    FOREIGN KEY(CaseID) REFERENCES Cases(CaseID)
+    FOREIGN KEY(ClientID) REFERENCES Clients(ClientID)
 );
+
+drop table clients;
 
 -- INSERT commands:
 -- Lawyers Table:
@@ -91,10 +92,10 @@ INSERT INTO Cases(LawyerID, ClientID, Ongoing, Judgement_Date, Win) -- CaseID = 
 VALUES("L005", "CLI005", 1, NULL, NULL);
 
 
---Billings Table: 
---There will be a bill for a signing on fee ($100,000.00) and a bill per case (variable on the case), so there will initially by 10 records in this table.
---Add a trigger later that says you cannot bill for a case that a client that does not exist
---Add another trigger saying whenever a client is signed on, make another record on the billings table about their sign on fee.
+-- Billings Table: 
+-- There will be a bill for a signing on fee ($100,000.00) and a bill per case (variable on the case), so there will initially by 10 records in this table.
+-- Add a trigger later that says you cannot bill for a case that a client that does not exist
+-- Add another trigger saying whenever a client is signed on, make another record on the billings table about their sign on fee.
 INSERT INTO Billings(ClientID, Earnings, Billed_on, Reason) -- Bill ID = 1
 VALUES("CLI001", 100000.00, "1999-11-17", "Signed a Client"); -- Earnings in US Dollar, Signed a Client
 
