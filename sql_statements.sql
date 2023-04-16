@@ -96,28 +96,28 @@ VALUES("L005", "CLI005", 1, NULL, NULL);
 --Add a trigger later that says you cannot bill for a case that a client that does not exist
 --Add another trigger saying whenever a client is signed on, make another record on the billings table about their sign on fee.
 INSERT INTO Billings(ClientID, Earnings, Billed_on, Reason) -- Bill ID = 1
-VALUES("CLI001", 100000.00, 1999-11-17, "Signed a Client"); -- Earnings in US Dollar, Signed a Client
+VALUES("CLI001", 100000.00, "1999-11-17", "Signed a Client"); -- Earnings in US Dollar, Signed a Client
 
 INSERT INTO Billings(ClientID, Earnings, Billed_on, Reason) -- Bill ID = 2
-VALUES("CLI001", 300272.88, 2000-05-17, "Case");
+VALUES("CLI001", 300272.88, "2000-05-17", "Case");
 
 INSERT INTO Billings(ClientID, Earnings, Billed_on, Reason) -- Bill ID = 3
-VALUES("CLI002", 100000.00, 2005-02-10, "Signed a Client");
+VALUES("CLI002", 100000.00,"2005-02-10", "Signed a Client");
 
 INSERT INTO Billings(ClientID, Earnings, Billed_on, Reason) -- Bill ID = 4
-VALUES("CLI003", 100000.00, 2009-09-23, "Signed a Client");
+VALUES("CLI003", 100000.00, "2009-09-23", "Signed a Client");
 
 INSERT INTO Billings(ClientID, Earnings, Billed_on, Reason) -- Bill ID = 5
-VALUES("CLI004", 100000.00, 2010-01-07, "Signed a Client");
+VALUES("CLI004", 100000.00, "2010-01-07", "Signed a Client");
 
 INSERT INTO Billings(ClientID, Earnings, Billed_on, Reason) -- Bill ID = 6
-VALUES("CLI004", 525047.36, 2010-03-29, "Case"); 
+VALUES("CLI004", 525047.36, "2010-03-29", "Case"); 
 
 INSERT INTO Billings(ClientID, Earnings, Billed_on, Reason) -- Bill ID = 7
-VALUES("CLI005", 100000.00, 2015-04-29, "Signed a Client");
+VALUES("CLI005", 100000.00, "2015-04-29", "Signed a Client");
 
 INSERT INTO Billings(ClientID, Earnings, Billed_on, Reason) -- Bill ID = 8
-VALUES("CLI005", 305855.56, 2016-12-16, "Case");
+VALUES("CLI005", 305855.56, "2016-12-16", "Case");
 
 INSERT INTO Billings(ClientID, Earnings, Billed_on, Reason) -- Bill ID = 9
-VALUES("CLI005", 70000.00, 2022-09-27, "Case");
+VALUES("CLI005", 70000.00, "2022-09-27", "Case");

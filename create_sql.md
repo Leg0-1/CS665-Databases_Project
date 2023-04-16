@@ -1,38 +1,40 @@
-# Create SQL commands:
+# Create Table Statements
 
-## Table 1 (Lawyers)
+
+## Lawyers Table
 CREATE TABLE Lawyers(
-    LawyerID CHAR(4) NOT NULL,
+    LawyerID CHAR(4) NOT NULL, -- L001, L002, L003, ...
     LastName VARCHAR(255) NOT NULL,
     FirstName VARCHAR(255) NOT NULL,
     Member_Of_Bar_Since YEAR NOT NULL,
     PRIMARY KEY(LawyerID)
 );
 
-## Table 2 (Clients)
+## Clients Table
 CREATE TABLE Clients(
     ClientID CHAR(6) NOT NULL,
     Company_Name VARCHAR(255) NOT NULL,
     Industry ENUM("Tech", "Healthcare", "Finance", "Energy and Utilities", "Transportation", "Education", "Automotive", "Defense", "Construction", "Other") NOT NULL,
-    Client_Since DATE NOT NULL,
+    Client_Since YEAR NOT NULL,
     UNIQUE(Company_Name),
     PRIMARY KEY(ClientID)
 );
 
-## Table 3 (Cases)
+## Cases Table
 CREATE TABLE Cases(
     CaseID INT(255) AUTO_INCREMENT NOT NULL,
     LawyerID CHAR(4) NOT NULL,
     ClientID CHAR(6) NOT NULL,
     Ongoing BOOL NOT NULL,
-    Judgement_Date DATE, --can be NULL because case may be ongoing
-    Win BOOL, -- can be NULL because case may be ongoing
+    Judgement_Date DATE,
+    Win BOOL, 
     PRIMARY KEY(CaseID),
     FOREIGN KEY(LawyerID) REFERENCES Lawyers(LawyerID),
     FOREIGN KEY(ClientID) REFERENCES Clients(ClientID)
 );
 
-## Table 4 (Billings)
+
+## Billings Table
 CREATE TABLE Billings(
     BillID INT(255) AUTO_INCREMENT NOT NULL,
     ClientID CHAR(6) NOT NULL,
@@ -40,6 +42,5 @@ CREATE TABLE Billings(
     Billed_on DATE NOT NULL,
     Reason VARCHAR(255) NOT NULL,
     PRIMARY KEY(BillID),
-    FOREIGN KEY(ClientID) REFERENCES Clients(ClientID),
-    FOREIGN KEY(CaseID) REFERENCES Cases(CaseID)
+    FOREIGN KEY(ClientID) REFERENCES Clients(ClientID)
 );
