@@ -11,6 +11,10 @@ End of semester project for my Databases class with Dr. Huabo Lu
 * A zipped file for your source code (e.g., VS solution) folder. Note that please delete large-size folders
 such as bin/temp/debug. The zip file should be less than 20 MB.
 
+## Description
+
+
+
 
 ## Contributions
 

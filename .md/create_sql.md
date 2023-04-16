@@ -6,21 +6,24 @@ CREATE TABLE Lawyers(
     LawyerID CHAR(4) NOT NULL, -- L001, L002, L003, ...
     LastName VARCHAR(255) NOT NULL,
     FirstName VARCHAR(255) NOT NULL,
-    Member_Of_Bar_Since YEAR NOT NULL,
+    Member_Of_Bar_Since YEAR NOT NULL, -- Cannot be uniquely determined by someone's name
     PRIMARY KEY(LawyerID)
 );
 
 ## Clients Table
+
 CREATE TABLE Clients(
     ClientID CHAR(6) NOT NULL,
     Company_Name VARCHAR(255) NOT NULL,
     Industry ENUM("Tech", "Healthcare", "Finance", "Energy and Utilities", "Transportation", "Education", "Automotive", "Defense", "Construction", "Other") NOT NULL,
-    Client_Since YEAR NOT NULL,
+    Lawsuits INT(255),
     UNIQUE(Company_Name),
     PRIMARY KEY(ClientID)
 );
+-- Create a Trigger that says whenever a new case is filed with a particular clientID, it must update that client's Lawsuit number
 
 ## Cases Table
+
 CREATE TABLE Cases(
     CaseID INT(255) AUTO_INCREMENT NOT NULL,
     LawyerID CHAR(4) NOT NULL,
@@ -32,7 +35,7 @@ CREATE TABLE Cases(
     FOREIGN KEY(LawyerID) REFERENCES Lawyers(LawyerID),
     FOREIGN KEY(ClientID) REFERENCES Clients(ClientID)
 );
-
+-- Create a Trigger that says if the ongoing bool is 1, Judgement_Date and Win are allowed to be NULL, otherwise if ongoing bool is 0, Judgement_Date and Win columns are NOT NULL
 
 ## Billings Table
 CREATE TABLE Billings(
