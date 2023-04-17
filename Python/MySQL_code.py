@@ -16,3 +16,4 @@ result = cursor.fetchall()
 
 for x in result:
     print(x)
+    print(type(x))

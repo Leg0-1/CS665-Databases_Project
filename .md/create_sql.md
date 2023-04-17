@@ -47,3 +47,7 @@ CREATE TABLE Billings(
     PRIMARY KEY(BillID),
     FOREIGN KEY(ClientID) REFERENCES Clients(ClientID)
 );
+
+-- There will be a bill for a signing on fee ($100,000.00) and a bill per case (variable on the case), so there will initially 9 records in this table.
+-- Add a trigger later that says you cannot bill for a case that a client that does not exist
+-- Add another trigger saying whenever a client is signed on, make another record on the billings table about their sign on fee.
