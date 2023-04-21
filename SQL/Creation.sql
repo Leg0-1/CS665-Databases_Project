@@ -3,7 +3,7 @@ CREATE TABLE Lawyers(
     LawyerID CHAR(4) NOT NULL, -- L001, L002, L003, ...
     LastName VARCHAR(255) NOT NULL,
     FirstName VARCHAR(255) NOT NULL,
-    Member_Of_Bar_Since YEAR NOT NULL, -- Cannot be uniquely determined by someone's name
+    Member_Of_Bar_Since YEAR NOT NULL, -- Cannot be uniquely determined by someone's name, therefore I would argue the table remains in 3NF
     PRIMARY KEY(LawyerID)
 );
 
