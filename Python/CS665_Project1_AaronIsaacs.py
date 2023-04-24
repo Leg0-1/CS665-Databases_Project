@@ -3,7 +3,7 @@ import mysql.connector as mysql
 import pandas as pd
 
 
-# Backend =========================================================================================
+# Back-end =========================================================================================
 def connect():
   LawyerDB = mysql.connect(
     host="localhost",
@@ -67,19 +67,22 @@ def submit(inputbox : tk.Text, displaybox : tk.Text):
     idx = command.find(" ") # find index of " " so that program can determine the command
     commandStart = command[0:idx] # find the command
     if commandStart.upper() in querySet: # if the command is "show" or "select"
-        df = pd.read_sql(command, sql) # read the result
-        string = df.to_string() # put it in string format
-        # Now put it in the display box:
+        df = pd.read_sql(command, sql) # query the db and put it in a dataframe
+        sql.close() # don't need to connect any longer
+        string = df.to_string() # put dataframe in string format
+        # Now put result in the display box:
         displaybox.config(state="normal")
         displaybox.delete("1.0", tk.END)
         displaybox.insert("1.0", string)
         displaybox.config(state="disabled")
     else: # something other than retreiving data
         try:
+            # Submit the command:
             cursor = sql.cursor()
             cursor.execute(command)
             sql.commit()
             sql.close()
+            # Display whether it worked or not:
             displaybox.config(state="normal")
             displaybox.delete("1.0", tk.END)
             displaybox.insert("1.0", "Transaction completed and committed successfully.")

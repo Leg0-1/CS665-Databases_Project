@@ -11,7 +11,7 @@ CREATE TABLE Clients(
     ClientID CHAR(6) NOT NULL,
     Company_Name VARCHAR(255) NOT NULL,
     Industry ENUM("Tech", "Healthcare", "Finance", "Energy and Utilities", "Transportation", "Education", "Automotive", "Defense", "Construction", "Other") NOT NULL,
-    Lawsuits INT(255),
+    Lawsuits INT(255) NOT NULL,
     UNIQUE(Company_Name),
     PRIMARY KEY(ClientID)
 );
@@ -35,7 +35,7 @@ CREATE TABLE Billings(
     ClientID CHAR(6) NOT NULL,
     Earnings DECIMAL(15,2) NOT NULL,
     Billed_on DATE NOT NULL,
-    Reason VARCHAR(255) NOT NULL,
+    Reason ENUM("Signed a Client", "Case") NOT NULL,
     PRIMARY KEY(BillID),
     FOREIGN KEY(ClientID) REFERENCES Clients(ClientID)
 );
