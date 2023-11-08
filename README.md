@@ -21,4 +21,3 @@ https://youtu.be/O3q6LZn2Ycc
 ## Contributions
 
 Solo project of Aaron Isaacs.
-GitHub ID: 130238552
