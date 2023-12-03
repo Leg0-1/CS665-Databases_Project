@@ -12,7 +12,7 @@ End of semester project for my Databases class with Dr. Huabo Lu
 such as bin/temp/debug. The zip file should be less than 20 MB.
 
 ## Description
-The goal is to create an application that utilizes databases in the background with a GUI to control and make user input better. Doesn't need to be fancy, it's a 2 (or 3) week project so let's keep it barebones, focus more on the db than the GUI.
+The goal is to create an application that utilizes a database in the background with a Graphical User Interface (GUI) to control and make user input easier. The project didn't need to be fancy, it wass a 2 (or 3) week project so it is barebones, and focused more on the database than the GUI.
 
 ## Youtube Link
 https://youtu.be/O3q6LZn2Ycc
